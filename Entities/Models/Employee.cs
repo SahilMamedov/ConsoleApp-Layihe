@@ -16,6 +16,7 @@ namespace Entities.Models
         public int Age { get; set; }
         public string Salary { get; set; }
         public string HotelName { get; set; }
+        public DateTime ShareData { get; set; }
 
     }
 }

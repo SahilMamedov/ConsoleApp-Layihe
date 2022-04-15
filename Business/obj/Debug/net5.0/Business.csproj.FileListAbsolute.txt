@@ -11,7 +11,6 @@ C:\Users\Sahil\Desktop\Classroom1\ConsoleApp\Business\obj\Debug\net5.0\Business.
 C:\Users\Sahil\Desktop\Classroom1\ConsoleApp\Business\obj\Debug\net5.0\Business.AssemblyInfoInputs.cache
 C:\Users\Sahil\Desktop\Classroom1\ConsoleApp\Business\obj\Debug\net5.0\Business.AssemblyInfo.cs
 C:\Users\Sahil\Desktop\Classroom1\ConsoleApp\Business\obj\Debug\net5.0\Business.csproj.CoreCompileInputs.cache
-C:\Users\Sahil\Desktop\Classroom1\ConsoleApp\Business\obj\Debug\net5.0\Business.csproj.CopyComplete
 C:\Users\Sahil\Desktop\Classroom1\ConsoleApp\Business\obj\Debug\net5.0\Business.dll
 C:\Users\Sahil\Desktop\Classroom1\ConsoleApp\Business\obj\Debug\net5.0\ref\Business.dll
 C:\Users\Sahil\Desktop\Classroom1\ConsoleApp\Business\obj\Debug\net5.0\Business.pdb

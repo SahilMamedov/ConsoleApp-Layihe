@@ -22,8 +22,10 @@ namespace Business.Services
         {
             ID++;
             hotel.Id = ID;
+            hotel.ShareData = DateTime.Now;
             _hotelRepasitory.Create(hotel);
             return hotel;
+            
         }
 
         public Hotel DeleteHotel(string name)
@@ -40,7 +42,7 @@ namespace Business.Services
 
         public List<Hotel> GetAllHotel(string name = null)
         {
-            throw new NotImplementedException();
+            return _hotelRepasitory.GetAll(h => h.Name == name);
         }
 
         public Hotel GetHotel(int id)

@@ -18,6 +18,7 @@ namespace Business.Services
             ID++;
             employee.Id = ID;
             _employeeRepasitory.Create(employee);
+            employee.ShareData = DateTime.Now;
             return employee;
         }
 
