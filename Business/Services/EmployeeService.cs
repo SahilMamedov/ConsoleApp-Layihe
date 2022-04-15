@@ -11,10 +11,14 @@ namespace Business.Services
 {
     class EmployeeService : IEmployee
     {
+        public static int ID { get; set; }
         EmployeeRepasitory _employeeRepasitory;
         public Employee AddEmployee(Employee employee)
         {
-            throw new NotImplementedException();
+            ID++;
+            employee.Id = ID;
+            _employeeRepasitory.Create(employee);
+            return employee;
         }
 
         public bool DeletAllEmployee(string hotelname)
@@ -50,7 +54,7 @@ namespace Business.Services
 
         public List<Employee> GetAllEmployee(string Hotelname = null)
         {
-            throw new NotImplementedException();
+            return _employeeRepasitory.GetAll(e => e.HotelName == Hotelname);
         }
         public List<Employee> GetAll()
         {

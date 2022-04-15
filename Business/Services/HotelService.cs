@@ -11,7 +11,7 @@ namespace Business.Services
 {
     class HotelService : IHotel
     {
-        public int ID { get; set; }
+        public static int ID { get; set; }
         private HotelRepasitory _hotelRepasitory;
         EmployeeService employeeService;
         public HotelService()
