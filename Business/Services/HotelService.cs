@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Business.Services
 {
-    class HotelService : IHotel
+   public class HotelService : IHotel
     {
         public static int ID { get; set; }
         private HotelRepasitory _hotelRepasitory;

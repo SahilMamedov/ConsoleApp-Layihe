@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Business.Services
 {
-    class EmployeeService : IEmployee
+  public  class EmployeeService : IEmployee
     {
         public static int ID { get; set; }
         EmployeeRepasitory _employeeRepasitory;
