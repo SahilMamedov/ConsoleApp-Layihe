@@ -37,6 +37,7 @@ namespace DataAccess.Repositories
             }
 
         }
+        
 
         public List<Employee> GetAll(Predicate<Employee> filter = null)
         {

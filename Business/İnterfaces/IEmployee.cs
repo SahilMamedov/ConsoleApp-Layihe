@@ -12,7 +12,7 @@ namespace Business.İnterfaces
         Employee AddEmployee(Employee employee);
         Employee UpdateEmployee(int id, Employee employee);
         Employee DeleteEmployee(int id);
-        Employee DeletAllEmployee(string Hotelname);
+        bool DeletAllEmployee(string Hotelname);
         Employee GetEmployee(int id);
         List<Employee> GetAllEmployee(string Hotelname = null);
     }

@@ -17,24 +17,49 @@ namespace Business.Services
             throw new NotImplementedException();
         }
 
-        public Employee DeletAllEmployee(string Hotelname)
+        public bool DeletAllEmployee(string hotelname)
         {
-            _employeeRepasitory.
+           List<Employee> isExist = _employeeRepasitory.GetAll(e => e.HotelName == hotelname);
+            if (isExist == null)
+            {
+
+                return false;
+               
+            }
+            foreach (var item in isExist)
+            {
+               
+                _employeeRepasitory.Delete(item);
+                
+            }
+            return true;
+           
+            
         }
 
         public Employee DeleteEmployee(int id)
         {
-            throw new NotImplementedException();
+            Employee isExist = _employeeRepasitory.GetOne(s => s.Id == id);
+            if (isExist == null)
+            {
+                return null;
+            }
+            _employeeRepasitory.Delete(isExist);
+            return isExist;
         }
 
         public List<Employee> GetAllEmployee(string Hotelname = null)
         {
             throw new NotImplementedException();
         }
+        public List<Employee> GetAll()
+        {
+            return _employeeRepasitory.GetAll();
+        }
 
         public Employee GetEmployee(int id)
         {
-            throw new NotImplementedException();
+            return _employeeRepasitory.GetOne(e => e.Id == id);
         }
 
         public Employee UpdateEmployee(int id, Employee employee)
