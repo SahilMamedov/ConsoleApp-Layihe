@@ -10,7 +10,9 @@ namespace Business.İnterfaces
    public interface IEmployee
     {
         Employee AddEmployee(Employee employee);
-        Employee UpdateEmployee(int id, Employee employee);
+        Employee UpdateEmployeePosition(int id,string position);
+        Employee UpdateEmployeeSalary(int id, int salary);
+        Employee UpdateEmployeeHotelname(int id, string hotelname);
         Employee DeleteEmployee(int id);
         bool DeletAllEmployee(string Hotelname);
         Employee GetEmployee(int id);

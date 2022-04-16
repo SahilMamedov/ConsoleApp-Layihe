@@ -56,10 +56,12 @@ namespace Business.Services
             Employee isExist = _employeeRepasitory.GetOne(s => s.Id == id);
             if (isExist == null)
             {
-                return null;
+                Extention.Print(ConsoleColor.Blue, "Bele bir Employee tapilmadi");
+              //  return false;
             }
 
             _employeeRepasitory.Delete(isExist);
+            // return true;
             return isExist;
         }
 
@@ -95,7 +97,41 @@ namespace Business.Services
             return isExist;
         }
 
-        public Employee UpdateEmployee(int id, Employee employee)
+        //public Employee UpdateEmployee(int id, Employee employee)
+        //{
+        //    return _employeeRepasitory.GetOne(e => e.Name == employee.Name);
+        //}
+
+        public Employee UpdateEmployeePosition(int id, string position)
+        {
+          
+            Employee isExist = _employeeRepasitory.GetOne(e => e.Id == id);
+            if (isExist != null)
+            {
+                isExist.Position = position;
+                Extention.Print(ConsoleColor.Yellow, $"ID: {isExist.Id} \n" +
+                 $"Name: {isExist.Name} \n" +
+                 $"Surname: {isExist.SurName} \n" +
+                 $"Age: {isExist.Age} \n" +
+                 $"Position: {isExist.Position} \n" +
+                 $"Salary {isExist.Salary} \n" +
+                 $"HotelName: {isExist.HotelName} \n" +
+                 $"ShareData: {isExist.ShareData}");
+                
+                return isExist;
+            }
+       
+            Extention.Print(ConsoleColor.Red, "Bele bir Employee Tapilmadi..!");
+            return null;
+           
+        }
+
+        public Employee UpdateEmployeeSalary(int id, int salary)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Employee UpdateEmployeeHotelname(int id, string hotelname)
         {
             throw new NotImplementedException();
         }

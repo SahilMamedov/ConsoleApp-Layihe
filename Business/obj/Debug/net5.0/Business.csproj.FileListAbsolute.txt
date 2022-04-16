@@ -16,4 +16,3 @@ C:\Users\Sahil\Desktop\Classroom1\ConsoleApp\Business\obj\Debug\net5.0\ref\Busin
 C:\Users\Sahil\Desktop\Classroom1\ConsoleApp\Business\obj\Debug\net5.0\Business.pdb
 C:\Users\Sahil\Desktop\Classroom1\ConsoleApp\Business\bin\Debug\net5.0\Utilities.dll
 C:\Users\Sahil\Desktop\Classroom1\ConsoleApp\Business\bin\Debug\net5.0\Utilities.pdb
-C:\Users\Sahil\Desktop\Classroom1\ConsoleApp\Business\obj\Debug\net5.0\Business.csproj.CopyComplete

@@ -72,6 +72,7 @@ namespace ConsoleApp
                             employeeController.RemoveEmployee();
                             break;
                         case 8:
+                            employeeController.UpdateEmployePosition();
                             break;
                         case 9:
                             employeeController.RemoveAllEmployee();

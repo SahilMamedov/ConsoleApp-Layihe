@@ -170,5 +170,29 @@ namespace ConsoleApp.Controllers
            
 
         }
+
+        public void UpdateEmployePosition()
+        {
+            try
+            {
+                Extention.Print(ConsoleColor.Green, "Position-u deyishmek istediyiniz Employeenin ID-sini daxil edin");
+
+                string num = Console.ReadLine();
+                int id;
+                int.TryParse(num, out id);
+
+                Extention.Print(ConsoleColor.Green, "Yeni Position-u qeyd edin");
+                string position = Console.ReadLine();
+                employeeService.UpdateEmployeePosition(id, position);
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message);
+            }
+           
+
+
+        }
     }
 }

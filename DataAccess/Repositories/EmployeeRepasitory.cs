@@ -46,12 +46,13 @@ namespace DataAccess.Repositories
                 DataContext.Employees.FindAll(filter);
         }
 
-        public Employee GetOne(Predicate<Employee> filter = null)
+        public Employee GetOne(Predicate<Employee> filter )
         {
             try
             {
-                return filter == null ? DataContext.Employees[0] :
-                    DataContext.Employees.Find(filter);
+                return DataContext.Employees.Find(filter);
+                //return filter == null ? DataContext.Employees[0] :
+                //    DataContext.Employees.Find(filter);
 
             }
             catch (Exception)
