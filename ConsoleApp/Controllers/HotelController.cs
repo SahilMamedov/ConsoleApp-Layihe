@@ -69,6 +69,8 @@ namespace ConsoleApp.Controllers
                     $"HotelName: {item.Name} \n" +
                     $"HotelAdress: {item.Adress} \n" +
                     $"ShareData: {item.ShareData}");
+                
+                
             }
         }
        

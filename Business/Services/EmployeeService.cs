@@ -6,13 +6,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Utilities.Helper;
 
 namespace Business.Services
 {
   public  class EmployeeService : IEmployee
     {
         public static int ID { get; set; }
-        public  EmployeeRepasitory _employeeRepasitory;
+        public EmployeeRepasitory _employeeRepasitory;
+        public EmployeeService()
+        {
+            _employeeRepasitory = new EmployeeRepasitory();
+        }
         public Employee AddEmployee(Employee employee)
         {
             ID++;
@@ -35,7 +40,12 @@ namespace Business.Services
             {
                
                 _employeeRepasitory.Delete(item);
-                
+                Extention.Print(ConsoleColor.Red, $"ID: {item.Id} \n" +
+                    $"Name: {item.Name} \n" +
+                    $"Surname: {item.SurName} \n" +
+                    $"HotelName: {item.HotelName} \n" +
+                    $"Silindi..!");
+
             }
             return true;
            
@@ -49,6 +59,7 @@ namespace Business.Services
             {
                 return null;
             }
+          
             _employeeRepasitory.Delete(isExist);
             return isExist;
         }
@@ -56,6 +67,7 @@ namespace Business.Services
         public List<Employee> GetAllEmployee(string Hotelname = null)
         {
             return _employeeRepasitory.GetAll(e => e.HotelName == Hotelname);
+            
         }
         public List<Employee> GetAll()
         {

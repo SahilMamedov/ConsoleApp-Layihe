@@ -12,15 +12,26 @@ namespace ConsoleApp.Controllers
 {
    public class EmployeeController
     {
-        public EmployeeService employeeService;
+        private EmployeeService employeeService;
+        public EmployeeController()
+        {
+            employeeService = new EmployeeService();
+        }
         public void AddEmployee()
         {
             Extention.Print(ConsoleColor.Green, "Employee Name daxil edin");
             string name = Console.ReadLine();
             Extention.Print(ConsoleColor.Green, "Employee Surname daxil edin");
             string surname = Console.ReadLine();
+            Enterage:
             Extention.Print(ConsoleColor.Green, "Employee Age daxil edin");
             int age = Convert.ToInt32(Console.ReadLine());
+            if (Extention.AgeCheck(age));
+            else
+            {
+                goto Enterage;
+            }
+           
             Extention.Print(ConsoleColor.Green, "Employee Position daxil edin");
             string position = Console.ReadLine();
             Extention.Print(ConsoleColor.Green, "Employee Salary daxil edin");
@@ -51,10 +62,57 @@ namespace ConsoleApp.Controllers
                         $"Salary: {employee.Salary} \n" +
                         $"HotelName: {employee.HotelName} \n" +
                         $"ShareData: {employee.ShareData}");
+                    return;
 
                 }
-                Extention.Print(ConsoleColor.Red, "Bele bir Otel tapilmadi");
+                
             }
+            Extention.Print(ConsoleColor.Red, "Bele bir Otel tapilmadi");
+        }
+        public void RemoveEmployee()
+        {
+            try
+            {
+                Extention.Print(ConsoleColor.Green, "Silmey istediyiniz Employee-nin ID-sini daxil edin");
+                int id = Convert.ToInt32(Console.ReadLine());
+                Extention.Print(ConsoleColor.Red, $"{employeeService.DeleteEmployee(id).Name} Silindi.");
+
+
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message);
+            }
+            
+
+        }
+        public void GetAllEmployee()
+        {
+            Extention.Print(ConsoleColor.Green, "Hotel Name Daxil edin");
+            string hotelname = Console.ReadLine();
+           
+            foreach (var item in employeeService.GetAllEmployee(hotelname))
+            {
+                Extention.Print(ConsoleColor.Yellow, $"ID: {item.Id} \n" +
+                    $"Name: {item.Name} \n" +
+                    $"Surname: {item.SurName} \n" +
+                    $"Age: {item.Age} \n" +
+                    $"Position: {item.Position} \n" +
+                    $"Salary: {item.Salary} \n" +
+                    $"HotelName: {item.HotelName}");
+                Extention.Print(ConsoleColor.Blue, "--------------------");
+            }
+        }
+        public void GetEmployee()
+        {
+            Extention.Print(ConsoleColor.Green, "Tapmaq istediyiniz Employee-nin ID-sini daxil edin");
+            int id = Convert.ToInt32(Console.ReadLine());
+
+          
+        }
+        public void RemoveAllEmployee()
+        {
 
         }
         

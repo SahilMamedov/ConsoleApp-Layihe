@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Business.Services
 {
    public class HotelService : IHotel
@@ -16,7 +17,8 @@ namespace Business.Services
        public EmployeeService employeeService;
         public HotelService()
         {
-            _hotelRepasitory = new HotelRepasitory();   
+            _hotelRepasitory = new HotelRepasitory();
+            employeeService = new EmployeeService();
         }
         public Hotel CreateHotel(Hotel hotel)
         {
@@ -37,6 +39,7 @@ namespace Business.Services
                 {
                     return null;
                 }
+                
                 employeeService.DeletAllEmployee(name);
                 _hotelRepasitory.Delete(isExist);
 

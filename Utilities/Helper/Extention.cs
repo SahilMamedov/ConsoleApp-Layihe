@@ -14,5 +14,21 @@ namespace Utilities.Helper
             Console.WriteLine(message);
             Console.ResetColor();
         }
+        public static bool AgeCheck(this int age)
+        {
+            bool result = false;
+            if(age >= 18 && age <= 40)
+            {
+                result = true;
+            }
+            else
+            {
+                Extention.Print(ConsoleColor.Red, "Age 18-den boyuk ve 40-dan kicik olmalidir");
+               
+            }
+           
+         
+            return result;
+        }
     }
 }

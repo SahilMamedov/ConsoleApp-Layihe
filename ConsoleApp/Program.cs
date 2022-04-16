@@ -67,6 +67,18 @@ namespace ConsoleApp
                         case 6:
                             employeeController.AddEmployee();
                             break;
+                        case 7:
+                            employeeController.RemoveEmployee();
+                            break;
+                        case 8:
+                            break;
+                        case 9:
+                            employeeController.GetAllEmployee();
+                            break;
+                        case 10:
+                            employeeController.GetEmployee();
+
+                            break;
                     }
                 }
             }
