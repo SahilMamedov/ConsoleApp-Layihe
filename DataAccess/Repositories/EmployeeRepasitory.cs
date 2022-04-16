@@ -63,19 +63,6 @@ namespace DataAccess.Repositories
            
         }
 
-        public bool Update(Employee entity)
-        {
-            try
-            {
-                Employee isExist = GetOne(e => e.Id == entity.Id);
-                isExist = entity;
-                return true;
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
+       
     }
 }

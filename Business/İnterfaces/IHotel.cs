@@ -10,11 +10,11 @@ namespace Business.İnterfaces
    public interface IHotel
     {
         Hotel CreateHotel(Hotel hotel);
-        Hotel UpdateHotel(int Id, Hotel hotel);
-
+        Hotel UpdateHotelName(string name,string newname );
+        Hotel UpdateHotelAdress(string name, string adress);
         Hotel DeleteHotel(string name);
 
-        Hotel GetHotel(int id);
+      //  Hotel GetHotel(int id);
 
         List<Hotel> GetAllHotel(string name = null);
     }

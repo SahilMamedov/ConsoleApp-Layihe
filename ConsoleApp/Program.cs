@@ -58,6 +58,7 @@ namespace ConsoleApp
                             hotelController.Remove();
                             break;
                         case 3:
+                            hotelController.UpdateHotel();
                             break;
                                 case 4:
                             hotelController.GetAllHotel();
@@ -72,7 +73,7 @@ namespace ConsoleApp
                             employeeController.RemoveEmployee();
                             break;
                         case 8:
-                            employeeController.UpdateEmployePosition();
+                            employeeController.UpdateEmployee();
                             break;
                         case 9:
                             employeeController.RemoveAllEmployee();

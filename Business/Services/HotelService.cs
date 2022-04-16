@@ -64,14 +64,50 @@ namespace Business.Services
             return _hotelRepasitory.GetAll(h => h.Name == name);
         }
 
-        public Hotel GetHotel(int id)
+        public Hotel UpdateHotelName(string name, string newname)
         {
-            throw new NotImplementedException();
+            Hotel isExist = _hotelRepasitory.GetOne(h => h.Name == name);
+            if (isExist != null)
+            {
+                isExist.Name = newname;
+                Extention.Print(ConsoleColor.Yellow, $"ID: {isExist.Id}");
+                Extention.Print(ConsoleColor.Blue, $"NewName: {isExist.Name}");
+                Extention.Print(ConsoleColor.Yellow, $"Adress: {isExist.Adress}");
+                return isExist;
+            }
+            else
+            {
+                Extention.Print(ConsoleColor.Red, $"Bu Name-de Hotel Taapilmadi..!");
+                
+            }
+            return null;
+
         }
 
-        public Hotel UpdateHotel(int Id, Hotel hotel)
+        public Hotel UpdateHotelAdress(string name, string adress)
         {
-            throw new NotImplementedException();
+            Hotel isExist = _hotelRepasitory.GetOne(h => h.Name == name);
+            if (isExist != null)
+            {
+                isExist.Adress = adress;
+                Extention.Print(ConsoleColor.Yellow, $"ID: {isExist.Id} \n" +
+                    $"Name: {isExist.Name}");
+                Extention.Print(ConsoleColor.Blue, $"Adress: {isExist.Adress}");
+                return isExist;
+            }
+            else
+            {
+                Extention.Print(ConsoleColor.Red, $"Bu Name-de Hotel Taapilmadi..!");
+
+            }
+            return null;
         }
+
+        //public Hotel GetHotel(int id)
+        //{
+        //    return _hotelRepasitory.GetOne(h => h.Id == id);
+        //}
+
+
     }
 }
