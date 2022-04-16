@@ -9,6 +9,7 @@ namespace ConsoleApp
         static void Main(string[] args)
         {
             HotelController hotelController = new HotelController();
+            EmployeeController employeeController = new EmployeeController();
             Extention.Print(ConsoleColor.Green, "Xosh gelmisiniz");
             Console.WriteLine();
             while (true)
@@ -54,7 +55,17 @@ namespace ConsoleApp
 
                             break;
                         case 2:
-
+                            hotelController.Remove();
+                            break;
+                        case 3:
+                            break;
+                                case 4:
+                            hotelController.GetAllHotel();
+                            break;
+                        case 5:
+                            break;
+                        case 6:
+                            employeeController.AddEmployee();
                             break;
                     }
                 }

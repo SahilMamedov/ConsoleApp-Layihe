@@ -9,11 +9,11 @@ namespace DataAccess.Repositories
 {
     public class EmployeeRepasitory : IRepasitory<Employee>
     {
-        public bool Create(Employee entity)
+        public bool Create(Employee employee)
         {
             try
             {
-                DataContext.Employees.Add(entity);
+                DataContext.Employees.Add(employee);
                 return true;
             }
             catch (Exception )

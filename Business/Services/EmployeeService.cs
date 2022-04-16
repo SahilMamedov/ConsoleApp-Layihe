@@ -12,7 +12,7 @@ namespace Business.Services
   public  class EmployeeService : IEmployee
     {
         public static int ID { get; set; }
-        EmployeeRepasitory _employeeRepasitory;
+        public  EmployeeRepasitory _employeeRepasitory;
         public Employee AddEmployee(Employee employee)
         {
             ID++;

@@ -13,7 +13,7 @@ namespace Business.Services
     {
         public static int ID { get; set; }
         private HotelRepasitory _hotelRepasitory;
-        EmployeeService employeeService;
+       public EmployeeService employeeService;
         public HotelService()
         {
             _hotelRepasitory = new HotelRepasitory();   
@@ -30,14 +30,28 @@ namespace Business.Services
 
         public Hotel DeleteHotel(string name)
         {
-            Hotel isExist = _hotelRepasitory.GetOne(h => h.Name == name);
-            if (isExist == null)
+            try
             {
-                return null;
+                Hotel isExist = _hotelRepasitory.GetOne(h => h.Name == name);
+                if (isExist == null)
+                {
+                    return null;
+                }
+                employeeService.DeletAllEmployee(name);
+                _hotelRepasitory.Delete(isExist);
+
+                return isExist;
             }
-            _hotelRepasitory.Delete(isExist);
-            employeeService.DeletAllEmployee(name);
-            return isExist;
+            catch (Exception)
+            {
+
+                throw;
+            }
+           
+        }
+        public List<Hotel> GetAll()
+        {
+            return _hotelRepasitory.GetAll();
         }
 
         public List<Hotel> GetAllHotel(string name = null)

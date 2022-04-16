@@ -7,7 +7,7 @@ namespace ConsoleApp.Controllers
 {
     public class HotelController
     {
-        HotelService hotelService;
+       public HotelService hotelService;
         public HotelController()
         {
             hotelService = new HotelService();
@@ -36,7 +36,7 @@ namespace ConsoleApp.Controllers
                 };
 
                 hotelService.CreateHotel(hotel);
-                Extention.Print(ConsoleColor.Green, $"ID:{hotel.Id} \n" +
+                Extention.Print(ConsoleColor.Yellow, $"ID:{hotel.Id} \n" +
                     $"HotelName:{hotel.Name} \n" +
                     $"Adress:{hotel.Adress} \n" +
                     $"ShareData {hotel.ShareData} Yarandi");
@@ -47,8 +47,36 @@ namespace ConsoleApp.Controllers
                 goto EnterName;
             }
 
+        }
+
+        public void Remove()
+        {
+            Extention.Print(ConsoleColor.Green, "Silmey Istediyiniz Hotelin Adin yazin");
+            string name = Console.ReadLine();
+            hotelService.DeleteHotel(name);
 
 
         }
+        public void UpdateHotel()
+        {
+
+        }
+        public void GetAllHotel()
+        {
+            foreach (var item in hotelService.GetAll()) 
+            {
+                Extention.Print(ConsoleColor.Yellow, $"ID: {item.Id} \n" +
+                    $"HotelName: {item.Name} \n" +
+                    $"HotelAdress: {item.Adress} \n" +
+                    $"ShareData: {item.ShareData}");
+            }
+        }
+       
+
+
+
+
+
+
     }
 }

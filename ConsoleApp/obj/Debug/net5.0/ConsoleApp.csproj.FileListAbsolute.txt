@@ -22,3 +22,4 @@ C:\Users\Sahil\Desktop\Classroom1\ConsoleApp\ConsoleApp\obj\Debug\net5.0\Console
 C:\Users\Sahil\Desktop\Classroom1\ConsoleApp\ConsoleApp\obj\Debug\net5.0\ref\ConsoleApp.dll
 C:\Users\Sahil\Desktop\Classroom1\ConsoleApp\ConsoleApp\obj\Debug\net5.0\ConsoleApp.pdb
 C:\Users\Sahil\Desktop\Classroom1\ConsoleApp\ConsoleApp\obj\Debug\net5.0\ConsoleApp.genruntimeconfig.cache
+C:\Users\Sahil\Desktop\Classroom1\ConsoleApp\ConsoleApp\obj\Debug\net5.0\ConsoleApp.csproj.CopyComplete
