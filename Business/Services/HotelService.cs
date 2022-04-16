@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Utilities.Helper;
 
 namespace Business.Services
 {
@@ -37,7 +37,9 @@ namespace Business.Services
                 Hotel isExist = _hotelRepasitory.GetOne(h => h.Name == name);
                 if (isExist == null)
                 {
+                    Extention.Print(ConsoleColor.Red, "Silmey istediyiniz add Otel Tapilmadi..!");
                     return null;
+                   
                 }
                 
                 employeeService.DeletAllEmployee(name);

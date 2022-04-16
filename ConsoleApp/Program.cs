@@ -39,7 +39,7 @@ namespace ConsoleApp
                 "6: Add Employee \n" +
                 "7: Remove Employee \n" +
                 "8: Update Employe \n" +
-                "9: Get All Employee \n" +
+                "9: Remove All Employee \n" +
                 "10: Get Employee \n" +
                 "0: Quit Program");
                 string num = Console.ReadLine();
@@ -63,6 +63,7 @@ namespace ConsoleApp
                             hotelController.GetAllHotel();
                             break;
                         case 5:
+                            employeeController.GetAllEmployee();
                             break;
                         case 6:
                             employeeController.AddEmployee();
@@ -73,7 +74,7 @@ namespace ConsoleApp
                         case 8:
                             break;
                         case 9:
-                            employeeController.GetAllEmployee();
+                            employeeController.RemoveAllEmployee();
                             break;
                         case 10:
                             employeeController.GetEmployee();

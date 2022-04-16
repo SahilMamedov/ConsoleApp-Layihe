@@ -3,14 +3,11 @@ using DataAccess.Repositories;
 using Entities.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Utilities.Helper;
 
 namespace Business.Services
 {
-  public  class EmployeeService : IEmployee
+    public class EmployeeService : IEmployee
     {
         public static int ID { get; set; }
         public EmployeeRepasitory _employeeRepasitory;
@@ -29,27 +26,29 @@ namespace Business.Services
 
         public bool DeletAllEmployee(string hotelname)
         {
-           List<Employee> isExist = _employeeRepasitory.GetAll(e => e.HotelName == hotelname);
+            List<Employee> isExist = _employeeRepasitory.GetAll(e => e.HotelName == hotelname);
             if (isExist == null)
             {
-
+                Console.WriteLine("BOOOWDU");
                 return false;
-               
+                
+
             }
             foreach (var item in isExist)
             {
+
                
-                _employeeRepasitory.Delete(item);
                 Extention.Print(ConsoleColor.Red, $"ID: {item.Id} \n" +
                     $"Name: {item.Name} \n" +
                     $"Surname: {item.SurName} \n" +
                     $"HotelName: {item.HotelName} \n" +
                     $"Silindi..!");
-
+                Extention.Print(ConsoleColor.Yellow, "-----------------");
+                _employeeRepasitory.Delete(item);
             }
             return true;
-           
-            
+
+
         }
 
         public Employee DeleteEmployee(int id)
@@ -59,15 +58,16 @@ namespace Business.Services
             {
                 return null;
             }
-          
+
             _employeeRepasitory.Delete(isExist);
             return isExist;
         }
 
         public List<Employee> GetAllEmployee(string Hotelname = null)
         {
+
             return _employeeRepasitory.GetAll(e => e.HotelName == Hotelname);
-            
+
         }
         public List<Employee> GetAll()
         {
@@ -76,7 +76,23 @@ namespace Business.Services
 
         public Employee GetEmployee(int id)
         {
-            return _employeeRepasitory.GetOne(e => e.Id == id);
+        
+         Employee isExist=_employeeRepasitory.GetOne(e => e.Id == id);
+            if (isExist == null)
+            {
+                Extention.Print(ConsoleColor.Red, "Axtardiqiniz ID-li Employee Tapilmadi..!");
+                return null;
+            }
+            Extention.Print(ConsoleColor.Yellow, $"ID: {isExist.Id} \n" +
+                $"Name: {isExist.Name} \n" +
+                $"Surname: {isExist.SurName} \n" +
+                $"Age: {isExist.Age} \n" +
+                $"Position: {isExist.Position} \n" +
+                $"Salary {isExist.Salary} \n" +
+                $"HotelName: {isExist.HotelName} \n" +
+                $"ShareData: {isExist.ShareData}");
+          
+            return isExist;
         }
 
         public Employee UpdateEmployee(int id, Employee employee)
