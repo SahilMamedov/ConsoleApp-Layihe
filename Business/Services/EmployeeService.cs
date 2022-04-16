@@ -37,8 +37,8 @@ namespace Business.Services
             foreach (var item in isExist)
             {
 
-               
-                Extention.Print(ConsoleColor.Red, $"ID: {item.Id} \n" +
+
+                Extention.Print(ConsoleColor.Blue, $"ID: {item.Id} \n" +
                     $"Name: {item.Name} \n" +
                     $"Surname: {item.SurName} \n" +
                     $"HotelName: {item.HotelName} \n" +

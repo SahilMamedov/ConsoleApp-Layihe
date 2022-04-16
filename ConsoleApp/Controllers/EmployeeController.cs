@@ -21,12 +21,20 @@ namespace ConsoleApp.Controllers
             string surname = Console.ReadLine();
         Enterage:
             Extention.Print(ConsoleColor.Green, "Employee Age daxil edin");
-            int age = Convert.ToInt32(Console.ReadLine());
-            if (Extention.AgeCheck(age)) ;
+            string age = Console.ReadLine();
+
+            int num;
+
+            if (int.TryParse(age, out num) && num >= 18 && num <= 40)
+            {
+
+            }
             else
             {
+                Extention.Print(ConsoleColor.Red, "Duzgun daxil edin Age-i 18-den boyuk 40-dan kicik. ");
                 goto Enterage;
             }
+
 
             Extention.Print(ConsoleColor.Green, "Employee Position daxil edin");
             string position = Console.ReadLine();
@@ -91,24 +99,33 @@ namespace ConsoleApp.Controllers
             string hotelname = Console.ReadLine();
             foreach (var item in DataContext.Hotels)
             {
-                if (hotelname == item.Name) ;
+                if (hotelname == item.Name)
+                {
+
+                    foreach (var item1 in employeeService.GetAllEmployee(hotelname))
+                    {
+
+
+                        Extention.Print(ConsoleColor.Yellow, $"ID: {item.Id} \n" +
+                            $"Name: {item1.Name} \n" +
+                            $"Surname: {item1.SurName} \n" +
+                            $"Age: {item1.Age} \n" +
+                            $"Position: {item1.Position} \n" +
+                            $"Salary: {item1.Salary} \n" +
+                            $"HotelName: {item1.HotelName}");
+                        Extention.Print(ConsoleColor.Blue, "--------------------");
+                    }
+
+
+                }
                 else
                 {
                     Extention.Print(ConsoleColor.Red, "Bele Otel yoxdur! adin duzgun qeyd edin");
                     goto Enterhotelname;
                 }
+
             }
-            foreach (var item in employeeService.GetAllEmployee(hotelname))
-            {
-                Extention.Print(ConsoleColor.Yellow, $"ID: {item.Id} \n" +
-                    $"Name: {item.Name} \n" +
-                    $"Surname: {item.SurName} \n" +
-                    $"Age: {item.Age} \n" +
-                    $"Position: {item.Position} \n" +
-                    $"Salary: {item.Salary} \n" +
-                    $"HotelName: {item.HotelName}");
-                Extention.Print(ConsoleColor.Blue, "--------------------");
-            }
+
         }
         public void GetEmployee()
         {
@@ -126,7 +143,22 @@ namespace ConsoleApp.Controllers
             string hotelname = Console.ReadLine();
             foreach (var item in DataContext.Hotels)
             {
-                if (hotelname == item.Name) ;
+                if (hotelname == item.Name)
+                {
+                    foreach (var item1 in employeeService.GetAllEmployee(hotelname))
+                    {
+                        Extention.Print(ConsoleColor.Yellow, $"ID: {item.Id} \n" +
+                            $"Name: {item1.Name} \n" +
+                            $"Surname: {item1.SurName} \n" +
+                            $"Age: {item1.Age} \n" +
+                            $"Position: {item1.Position} \n" +
+                            $"Salary: {item1.Salary} \n" +
+                            $"HotelName: {item1.HotelName} \n" +
+                            $"Silindi..!");
+
+                        Extention.Print(ConsoleColor.Blue, "--------------------");
+                    }
+                }
                 else
                 {
                     Extention.Print(ConsoleColor.Red, "Bele Otel yoxdur! adin duzgun qeyd edin");
@@ -135,20 +167,7 @@ namespace ConsoleApp.Controllers
 
                 employeeService.DeletAllEmployee(hotelname);
             }
-            //foreach (var item in employeeService.GetAllEmployee(hotelname))
-            //{
-            //    Extention.Print(ConsoleColor.Yellow, $"ID: {item.Id} \n" +
-            //        $"Name: {item.Name} \n" +
-            //        $"Surname: {item.SurName} \n" +
-            //        $"Age: {item.Age} \n" +
-            //        $"Position: {item.Position} \n" +
-            //        $"Salary: {item.Salary} \n" +
-            //        $"HotelName: {item.HotelName} \n" +
-            //        $"Silindi..!");
-                
-            //    Extention.Print(ConsoleColor.Blue, "--------------------");
-
-            //}
+           
 
         }
     }

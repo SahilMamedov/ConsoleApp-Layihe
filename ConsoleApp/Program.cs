@@ -17,12 +17,12 @@ namespace ConsoleApp
                 Extention.Print(ConsoleColor.Green, "1: Hotel Yaradin");
                 string num = Console.ReadLine();
                 int numm;
-               bool v= int.TryParse(num, out numm);
+               bool control = int.TryParse(num, out numm);
 
                    
 
 
-                if (v&&numm==1)
+                if (control&&numm==1)
                 {
                     hotelController.CreateHotel();
                     break;
@@ -78,9 +78,14 @@ namespace ConsoleApp
                             break;
                         case 10:
                             employeeController.GetEmployee();
-
                             break;
+                      
                     }
+                   
+                }
+                if (input == 0)
+                {
+                    break;
                 }
             }
             
