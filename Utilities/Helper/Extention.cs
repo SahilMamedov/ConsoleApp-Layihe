@@ -38,13 +38,60 @@ namespace Utilities.Helper
             UpdateEmployeeHotelName,
             Quit
         }
+        public static string StringName()
+        {
+        Entername:
+            string stringname = Console.ReadLine();
+            if (!string.IsNullOrEmpty(stringname))
+            {
+                return stringname;
+
+            }
+            else
+            {
+                Extention.Print(ConsoleColor.Red, "Zehmet olmasa duzgun yazin..!");
+                goto Entername;
+            }
+
+
+
+
+        }
+        public static int IntNum()
+        {
+            Enterage:
+            string num = Console.ReadLine();
+            int age;
+            int.TryParse(num, out age);
+            if (age >= 18 && age <= 40)
+            {
+                return age;
+            }
+            else
+            {
+                Extention.Print(ConsoleColor.Red, "Duzgun daxil edin Age-i 18-den boyuk 40-dan kicik. ");
+                goto Enterage;
+            }
+        }
+        public static int IntCheck()
+        {
+        Enterage:
+            string num = Console.ReadLine();
+            int num1;
+          bool y = int.TryParse(num, out num1);
+            if (y)
+            {
+                return num1;
+            }
+            else
+            {
+                Extention.Print(ConsoleColor.Red, "Zehmet Olmasa Duzgun Daxil edin..!");
+                goto Enterage;
+            }
+        }
 
 
 
 
     }
-
-
-
-
 }

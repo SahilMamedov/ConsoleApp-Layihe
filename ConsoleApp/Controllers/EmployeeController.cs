@@ -18,41 +18,30 @@ namespace ConsoleApp.Controllers
             try
             {
                 Extention.Print(ConsoleColor.Green, "Employee Name daxil edin");
-                string name = Console.ReadLine();
+                string name = Extention.StringName();
                 Extention.Print(ConsoleColor.Green, "Employee Surname daxil edin");
-                string surname = Console.ReadLine();
-            Enterage:
+                string surname = Extention.StringName();
                 Extention.Print(ConsoleColor.Green, "Employee Age daxil edin");
-                int age = Convert.ToInt32(Console.ReadLine());
-                if (age >= 18 && age <= 40)
-                {
-
-                }
-                else
-                {
-                    Extention.Print(ConsoleColor.Red, "Duzgun daxil edin Age-i 18-den boyuk 40-dan kicik. ");
-                    goto Enterage;
-                }
-
+                int age = Extention.IntNum();
                 Extention.Print(ConsoleColor.Green, "Employee Position daxil edin");
-                string position = Console.ReadLine();
+                string position = Extention.StringName();
                 Extention.Print(ConsoleColor.Green, "Employee Salary daxil edin");
-                int salary = Convert.ToInt32(Console.ReadLine());
+                int salary = Extention.IntCheck();
                 Extention.Print(ConsoleColor.Green, "Employee HotelName daxil edin");
-                string hotelname = Console.ReadLine();
+                string hotelname = Extention.StringName();
 
                 foreach (var item in DataContext.Hotels)
                 {
-                    if (hotelname == item.Name)
+                    if (hotelname.ToLower() == item.Name)
                     {
                         Employee employee = new Employee()
                         {
-                            Name = name,
-                            SurName = surname,
+                            Name = name.ToLower(),
+                            SurName = surname.ToLower(),
                             Age = age,
-                            Position = position,
+                            Position = position.ToLower(),
                             Salary = salary,
-                            HotelName = hotelname,
+                            HotelName = hotelname.ToLower(),
 
                         };
                         employeeService.AddEmployee(employee);
@@ -82,7 +71,7 @@ namespace ConsoleApp.Controllers
             try
             {
                 Extention.Print(ConsoleColor.Green, "Silmey istediyiniz Employee-nin ID-sini daxil edin");
-                int id = Convert.ToInt32(Console.ReadLine());
+                int id = Extention.IntCheck();
                 Extention.Print(ConsoleColor.Red, $"{employeeService.DeleteEmployee(id).Name} Silindi.");
 
 
@@ -99,16 +88,16 @@ namespace ConsoleApp.Controllers
         {
             try
             {
-            Enterhotelname:
+               
                 Extention.Print(ConsoleColor.Green, "Hotel Name Daxil edin");
 
-                string hotelname = Console.ReadLine();
+                string hotelname = Extention.StringName();
                 foreach (var item in DataContext.Hotels)
                 {
                     if (hotelname == item.Name)
                     {
 
-                        foreach (var item1 in employeeService.GetAllEmployee(hotelname))
+                        foreach (var item1 in employeeService.GetAllEmployee(hotelname.ToLower()))
                         {
 
 
@@ -127,7 +116,7 @@ namespace ConsoleApp.Controllers
                     else
                     {
                         Extention.Print(ConsoleColor.Red, "Bele Otel yoxdur! adin duzgun qeyd edin");
-                        goto Enterhotelname;
+                      
                     }
 
                 }
@@ -144,7 +133,7 @@ namespace ConsoleApp.Controllers
             try
             {
                 Extention.Print(ConsoleColor.Green, "Tapmaq istediyiniz Employee-nin ID-sini daxil edin");
-                int id = Convert.ToInt32(Console.ReadLine());
+                int id = Extention.IntCheck();
                 employeeService.GetEmployee(id);
             }
             catch (Exception ex)
@@ -162,12 +151,12 @@ namespace ConsoleApp.Controllers
             Enterhotelname:
                 Extention.Print(ConsoleColor.Green, "Hotel Name Daxil edin");
 
-                string hotelname = Console.ReadLine();
+                string hotelname = Extention.StringName();
                 foreach (var item in DataContext.Hotels)
                 {
                     if (hotelname == item.Name)
                     {
-                        foreach (var item1 in employeeService.GetAllEmployee(hotelname))
+                        foreach (var item1 in employeeService.GetAllEmployee(hotelname.ToLower()))
                         {
                             Extention.Print(ConsoleColor.Yellow, $"ID: {item.Id} \n" +
                                 $"Name: {item1.Name} \n" +
@@ -187,7 +176,7 @@ namespace ConsoleApp.Controllers
                         goto Enterhotelname;
                     }
 
-                    employeeService.DeletAllEmployee(hotelname);
+                    employeeService.DeletAllEmployee(hotelname.ToLower());
                 }
             }
             catch (Exception ex)
@@ -206,13 +195,10 @@ namespace ConsoleApp.Controllers
             {
                 Extention.Print(ConsoleColor.Green, "Position-u deyishmek istediyiniz Employeenin ID-sini daxil edin");
 
-                string num = Console.ReadLine();
-                int id;
-                int.TryParse(num, out id);
-
+                int id = Extention.IntCheck();
                 Extention.Print(ConsoleColor.Green, "Yeni Position-u qeyd edin");
-                string position = Console.ReadLine();
-                employeeService.UpdateEmployeePosition(id, position);
+                string position = Extention.StringName();
+                employeeService.UpdateEmployeePosition(id, position.ToLower());
             }
             catch (Exception ex)
             {
@@ -228,13 +214,9 @@ namespace ConsoleApp.Controllers
             try
             {
                 Extention.Print(ConsoleColor.Green, "Salary-sin deyishmek istediyiniz Employeenin ID-sini daxil edin");
-                string num = Console.ReadLine();
-                int id;
-                int.TryParse(num, out id);
+                int id = Extention.IntCheck();
                 Extention.Print(ConsoleColor.Green, "Salary-sin daxil edin");
-                string num1 = Console.ReadLine();
-                int salary;
-                int.TryParse(num1, out salary);
+                int salary = Extention.IntCheck();
                 employeeService.UpdateEmployeeSalary(id, salary);
             }
             catch (Exception ex)
@@ -250,13 +232,11 @@ namespace ConsoleApp.Controllers
             try
             {
                 Extention.Print(ConsoleColor.Green, "Hotelname-in deyishmek istediyiniz Employeenin ID-sini daxil edin");
-                string num = Console.ReadLine();
-                int id;
-                int.TryParse(num, out id);
+                int id = Extention.IntCheck();
                 Extention.Print(ConsoleColor.Green, "Yeni HotelName-in daxil edin");
-                string hotelname = Console.ReadLine();
+                string hotelname = Extention.StringName();
 
-                employeeService.UpdateEmployeeHotelname(id, hotelname);
+                employeeService.UpdateEmployeeHotelname(id, hotelname.ToLower());
             }
             catch (Exception ex)
             {
@@ -276,11 +256,8 @@ namespace ConsoleApp.Controllers
                         $"2: Update Employee Salary \n" +
                         $"3: Update Employee HotelName \n" +
                         $"4: Quit");
-                    string num = Console.ReadLine();
-                    int input;
-
-                    bool IsNum = int.TryParse(num, out input);
-                    if (IsNum && input <= 4 && input > 0)
+                    int input = Extention.IntCheck();
+                    if (input <= 4 && input > 0)
                     {
                         switch (input)
                         {

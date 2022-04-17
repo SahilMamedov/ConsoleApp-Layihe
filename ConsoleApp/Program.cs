@@ -15,7 +15,7 @@ namespace ConsoleApp
             while (true)
             {
                 Extention.Print(ConsoleColor.Green, "1: Hotel Yaradin");
-                string num = Console.ReadLine();
+                string num = Extention.StringName();
                 int numm;
                bool control = int.TryParse(num, out numm);
 
@@ -42,7 +42,7 @@ namespace ConsoleApp
                 "9: Remove All Employee \n" +
                 "10: Get Employee \n" +
                 "11: Quit Program");
-                string num = Console.ReadLine();
+                string num = Extention.StringName();
                 int input;
 
                 bool IsNum = int.TryParse(num, out input);

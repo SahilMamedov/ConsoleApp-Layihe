@@ -18,9 +18,10 @@ namespace ConsoleApp.Controllers
             {
             EnterName:
                 Extention.Print(ConsoleColor.Green, "Hotel Name daxil edin");
-                string name = Console.ReadLine();
+                 string name = Extention.StringName();
                 Extention.Print(ConsoleColor.Green, "Hotel Adress daxil edin");
-                string adress = Console.ReadLine();
+                
+                string adress = Extention.StringName();
 
 
 
@@ -32,8 +33,8 @@ namespace ConsoleApp.Controllers
 
                     Hotel hotel = new Hotel
                     {
-                        Name = name,
-                        Adress = adress,
+                        Name = name.ToLower(),
+                        Adress = adress.ToLower(),
 
                     };
 
@@ -62,8 +63,8 @@ namespace ConsoleApp.Controllers
             try
             {
                 Extention.Print(ConsoleColor.Green, "Silmey Istediyiniz Hotelin Adin yazin");
-                string name = Console.ReadLine();
-                hotelService.DeleteHotel(name);
+                string name = Extention.StringName();
+                hotelService.DeleteHotel(name.ToLower());
             }
             catch (Exception ex)
             {
@@ -79,10 +80,10 @@ namespace ConsoleApp.Controllers
             try
             {
                 Extention.Print(ConsoleColor.Green, "Name-in Deyishmek istediyiniz Hotelin Name-in daxil edin");
-                string name = Console.ReadLine();
+                string name = Extention.StringName();
                 Extention.Print(ConsoleColor.Green, "New Name-i daxin edin");
-                string newname = Console.ReadLine();
-                hotelService.UpdateHotelName(name, newname);
+                string newname = Extention.StringName();
+                hotelService.UpdateHotelName(name.ToLower(), newname.ToLower());
             }
             catch (Exception ex)
             {
@@ -95,10 +96,10 @@ namespace ConsoleApp.Controllers
             try
             {
                 Extention.Print(ConsoleColor.Green, "Adress-in Deyishmek istediyiniz Hotelin Name-in daxil edin");
-                string name = Console.ReadLine();
+                string name = Extention.StringName();
                 Extention.Print(ConsoleColor.Green, "New Adress-i daxin edin");
-                string newadress = Console.ReadLine();
-                hotelService.UpdateHotelAdress(name, newadress);
+                string newadress = Extention.StringName();
+                hotelService.UpdateHotelAdress(name.ToLower(), newadress.ToLower());
             }
             catch (Exception ex)
             {
@@ -116,13 +117,13 @@ namespace ConsoleApp.Controllers
                         "2: Update Hotel Adress: \n" +
                         "3: Quit");
 
-                    string num = Console.ReadLine();
-                    int input;
+                    int num = Extention.IntCheck();
+                   
 
-                    bool IsNum = int.TryParse(num, out input);
-                    if (IsNum && input <= 3 && input > 0)
+                   ;
+                    if (num <= 3 && num > 0)
                     {
-                        switch (input)
+                        switch (num)
                         {
                             case (int)Extention.MenuUpdateHotel.UpdateHotelName:
                                 UpdateHotelName();
@@ -132,7 +133,7 @@ namespace ConsoleApp.Controllers
                                 break;
                         }
                     }
-                    if (input == (int)Extention.MenuUpdateHotel.Quit)
+                    if (num == (int)Extention.MenuUpdateHotel.Quit)
                     {
                         break;
                     }
