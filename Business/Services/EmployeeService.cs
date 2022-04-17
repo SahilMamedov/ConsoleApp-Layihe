@@ -58,18 +58,18 @@ namespace Business.Services
             if (isExist == null)
             {
                 Extention.Print(ConsoleColor.Blue, "Bele bir Employee tapilmadi");
-                //  return false;
+                
             }
 
             _employeeRepasitory.Delete(isExist);
-            // return true;
+            
             return isExist;
         }
 
         public List<Employee> GetAllEmployee(string Hotelname = null)
         {
-
             return _employeeRepasitory.GetAll(e => e.HotelName == Hotelname);
+           
 
         }
         public List<Employee> GetAll()

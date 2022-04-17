@@ -94,12 +94,12 @@ namespace ConsoleApp.Controllers
                 string hotelname = Extention.StringName();
                 foreach (var item in DataContext.Hotels)
                 {
-                    if (hotelname == item.Name)
+                    if (hotelname.ToLower() == item.Name)
                     {
 
                         foreach (var item1 in employeeService.GetAllEmployee(hotelname.ToLower()))
                         {
-
+                            
 
                             Extention.Print(ConsoleColor.Yellow, $"ID: {item.Id} \n" +
                                 $"Name: {item1.Name} \n" +
@@ -109,8 +109,13 @@ namespace ConsoleApp.Controllers
                                 $"Salary: {item1.Salary} \n" +
                                 $"HotelName: {item1.HotelName}");
                             Extention.Print(ConsoleColor.Blue, "--------------------");
+                          
                         }
+                       
+                        
+                           // Extention.Print(ConsoleColor.Red, "Otelinizde Employee Yoxdur..!");
 
+                        
 
                     }
                     else
@@ -134,6 +139,7 @@ namespace ConsoleApp.Controllers
             {
                 Extention.Print(ConsoleColor.Green, "Tapmaq istediyiniz Employee-nin ID-sini daxil edin");
                 int id = Extention.IntCheck();
+                
                 employeeService.GetEmployee(id);
             }
             catch (Exception ex)
@@ -148,13 +154,13 @@ namespace ConsoleApp.Controllers
         {
             try
             {
-            Enterhotelname:
+           
                 Extention.Print(ConsoleColor.Green, "Hotel Name Daxil edin");
 
                 string hotelname = Extention.StringName();
                 foreach (var item in DataContext.Hotels)
                 {
-                    if (hotelname == item.Name)
+                    if (hotelname.ToLower() == item.Name)
                     {
                         foreach (var item1 in employeeService.GetAllEmployee(hotelname.ToLower()))
                         {
@@ -173,7 +179,7 @@ namespace ConsoleApp.Controllers
                     else
                     {
                         Extention.Print(ConsoleColor.Red, "Bele Otel yoxdur! adin duzgun qeyd edin");
-                        goto Enterhotelname;
+                      
                     }
 
                     employeeService.DeletAllEmployee(hotelname.ToLower());
