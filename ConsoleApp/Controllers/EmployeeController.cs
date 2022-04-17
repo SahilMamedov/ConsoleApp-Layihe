@@ -23,11 +23,8 @@ namespace ConsoleApp.Controllers
                 string surname = Console.ReadLine();
             Enterage:
                 Extention.Print(ConsoleColor.Green, "Employee Age daxil edin");
-                string age = Console.ReadLine();
-
-                int num;
-
-                if (int.TryParse(age, out num) && num >= 18 && num <= 40)
+                int age = Convert.ToInt32(Console.ReadLine());
+                if (age >= 18 && age <= 40)
                 {
 
                 }
@@ -36,7 +33,6 @@ namespace ConsoleApp.Controllers
                     Extention.Print(ConsoleColor.Red, "Duzgun daxil edin Age-i 18-den boyuk 40-dan kicik. ");
                     goto Enterage;
                 }
-
 
                 Extention.Print(ConsoleColor.Green, "Employee Position daxil edin");
                 string position = Console.ReadLine();
@@ -199,7 +195,7 @@ namespace ConsoleApp.Controllers
 
                 Console.WriteLine(ex.Message);
             }
-       
+
 
 
         }
@@ -246,7 +242,7 @@ namespace ConsoleApp.Controllers
 
                 Console.WriteLine(ex.Message);
             }
-            
+
 
         }
         public void UpdateEmployeeHotelname()
@@ -259,7 +255,7 @@ namespace ConsoleApp.Controllers
                 int.TryParse(num, out id);
                 Extention.Print(ConsoleColor.Green, "Yeni HotelName-in daxil edin");
                 string hotelname = Console.ReadLine();
-               
+
                 employeeService.UpdateEmployeeHotelname(id, hotelname);
             }
             catch (Exception ex)
@@ -279,7 +275,7 @@ namespace ConsoleApp.Controllers
                     Extention.Print(ConsoleColor.Cyan, $"1: Update Employe Position \n" +
                         $"2: Update Employee Salary \n" +
                         $"3: Update Employee HotelName \n" +
-                        $"0: Quit");
+                        $"4: Quit");
                     string num = Console.ReadLine();
                     int input;
 
@@ -288,19 +284,19 @@ namespace ConsoleApp.Controllers
                     {
                         switch (input)
                         {
-                            case 1:
+                            case (int)Extention.MenuUpdateEmployee.UpdateEmployeePosition:
                                 UpdateEmployePosition();
                                 break;
-                            case 2:
+                            case (int)Extention.MenuUpdateEmployee.UpdateEmployeeSalary:
                                 UpdateEmployeeSalary();
                                 break;
-                            case 3:
+                            case (int)Extention.MenuUpdateEmployee.UpdateEmployeeHotelName:
                                 UpdateEmployeeHotelname();
                                 break;
                         }
 
                     }
-                    if (input == 0)
+                    if (input == (int)Extention.MenuUpdateEmployee.Quit)
                     {
                         break;
                     }
@@ -311,7 +307,7 @@ namespace ConsoleApp.Controllers
 
                 Console.WriteLine(ex.Message);
             }
-            
+
 
         }
     }

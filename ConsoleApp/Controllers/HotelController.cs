@@ -7,7 +7,7 @@ namespace ConsoleApp.Controllers
 {
     public class HotelController
     {
-       public HotelService hotelService;
+        public HotelService hotelService;
         public HotelController()
         {
             hotelService = new HotelService();
@@ -70,7 +70,7 @@ namespace ConsoleApp.Controllers
 
                 Console.WriteLine(ex.Message);
             }
-           
+
 
 
         }
@@ -114,25 +114,25 @@ namespace ConsoleApp.Controllers
                 {
                     Extention.Print(ConsoleColor.Cyan, "1: Update Hotel Name: \n" +
                         "2: Update Hotel Adress: \n" +
-                        "0: Quit");
+                        "3: Quit");
 
                     string num = Console.ReadLine();
                     int input;
 
                     bool IsNum = int.TryParse(num, out input);
-                    if (IsNum && input <= 4 && input > 0)
+                    if (IsNum && input <= 3 && input > 0)
                     {
                         switch (input)
                         {
-                            case 1:
+                            case (int)Extention.MenuUpdateHotel.UpdateHotelName:
                                 UpdateHotelName();
                                 break;
-                            case 2:
+                            case (int)Extention.MenuUpdateHotel.UpdateHotelAdress:
                                 UpdateHotelAdress();
                                 break;
                         }
                     }
-                    if (input == 0)
+                    if (input == (int)Extention.MenuUpdateHotel.Quit)
                     {
                         break;
                     }
@@ -143,7 +143,7 @@ namespace ConsoleApp.Controllers
 
                 Console.WriteLine(ex.Message);
             }
-           
+
 
         }
         public void GetAllHotel()
@@ -165,9 +165,9 @@ namespace ConsoleApp.Controllers
 
                 Console.WriteLine(ex.Message);
             }
-            
+
         }
-       
+
 
 
 

@@ -14,7 +14,7 @@ namespace Business.İnterfaces
         Hotel UpdateHotelAdress(string name, string adress);
         Hotel DeleteHotel(string name);
 
-      //  Hotel GetHotel(int id);
+    
 
         List<Hotel> GetAllHotel(string name = null);
     }

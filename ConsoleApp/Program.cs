@@ -41,7 +41,7 @@ namespace ConsoleApp
                 "8: Update Employe \n" +
                 "9: Remove All Employee \n" +
                 "10: Get Employee \n" +
-                "0: Quit Program");
+                "11: Quit Program");
                 string num = Console.ReadLine();
                 int input;
 
@@ -50,45 +50,46 @@ namespace ConsoleApp
                 {
                     switch (input)
                     {
-                        case 1:
+                        case (int)Extention.Menu.CreateHotel:
                             hotelController.CreateHotel();
 
                             break;
-                        case 2:
+                        case (int)Extention.Menu.RemoveHotel:
                             hotelController.Remove();
                             break;
-                        case 3:
+                        case (int)Extention.Menu.UpdateHotel:
                             hotelController.UpdateHotel();
                             break;
-                                case 4:
+                                case (int)Extention.Menu.GetAllHotel:
                             hotelController.GetAllHotel();
                             break;
-                        case 5:
+                        case (int)Extention.Menu.GetHotelandEmployee:
                             employeeController.GetAllEmployee();
                             break;
-                        case 6:
+                        case (int)Extention.Menu.AddEmployee:
                             employeeController.AddEmployee();
                             break;
-                        case 7:
+                        case (int)Extention.Menu.RemoveEmployee:
                             employeeController.RemoveEmployee();
                             break;
-                        case 8:
+                        case (int)Extention.Menu.UpdateEmployee:
                             employeeController.UpdateEmployee();
                             break;
-                        case 9:
+                        case (int)Extention.Menu.RemoveAllEmployee:
                             employeeController.RemoveAllEmployee();
                             break;
-                        case 10:
+                        case (int)Extention.Menu.GetEmployee:
                             employeeController.GetEmployee();
                             break;
                       
                     }
-                   
+
                 }
-                if (input == 0)
+                if (input == (int)Extention.Menu.QuitProgram)
                 {
                     break;
                 }
+
             }
             
 

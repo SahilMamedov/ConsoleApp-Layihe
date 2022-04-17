@@ -103,10 +103,7 @@ namespace Business.Services
             return null;
         }
 
-        //public Hotel GetHotel(int id)
-        //{
-        //    return _hotelRepasitory.GetOne(h => h.Id == id);
-        //}
+       
 
 
     }

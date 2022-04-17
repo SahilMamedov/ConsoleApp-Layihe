@@ -11,32 +11,40 @@ namespace Utilities.Helper
             Console.WriteLine(message);
             Console.ResetColor();
         }
-    //    public static int AgeCheck(this int age)
-    //    {
-    //       Enterage:
-            
-    //        int num;
-    //        bool v = int.TryParse(age, out num);
-    //        // bool result = false;
+        public enum Menu
+        {
+            CreateHotel = 1,
+            RemoveHotel,
+            UpdateHotel,
+            GetAllHotel,
+            GetHotelandEmployee,
+            AddEmployee,
+            RemoveEmployee,
+            UpdateEmployee,
+            RemoveAllEmployee,
+            GetEmployee,
+            QuitProgram
+        }
+        public enum MenuUpdateHotel
+        {
+            UpdateHotelName = 1,
+            UpdateHotelAdress,
+            Quit
+        }
+        public enum MenuUpdateEmployee
+        {
+            UpdateEmployeePosition = 1,
+            UpdateEmployeeSalary,
+            UpdateEmployeeHotelName,
+            Quit
+        }
 
-    //        if (v)
-    //        {
-    //            if (num >= 18 && num <= 40)
-    //            {
-    //                return true;
-    //            }
-    //        }
-           
 
 
-    //        else
-    //        {
-    //            Extention.Print(ConsoleColor.Red, "Age 18-den boyuk ve 40-dan kicik olmalidir");
-    //            goto Enterage;
-    //        }
 
-
-    //        return age;
-    //    }
     }
+
+
+
+
 }
