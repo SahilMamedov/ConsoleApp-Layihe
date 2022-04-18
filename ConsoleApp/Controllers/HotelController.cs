@@ -16,39 +16,30 @@ namespace ConsoleApp.Controllers
         {
             try
             {
-            EnterName:
+
                 Extention.Print(ConsoleColor.Green, "Hotel Name daxil edin");
-                 string name = Extention.StringName();
+                string name = Extention.HotelnameCheck();
                 Extention.Print(ConsoleColor.Green, "Hotel Adress daxil edin");
-                
                 string adress = Extention.StringName();
 
 
 
-                bool y = char.IsNumber(name[0]);
-
-
-                if (y != true)
+                Hotel hotel = new Hotel
                 {
+                    Name = name.ToLower(),
+                    Adress = adress.ToLower(),
 
-                    Hotel hotel = new Hotel
-                    {
-                        Name = name.ToLower(),
-                        Adress = adress.ToLower(),
+                };
 
-                    };
+                hotelService.CreateHotel(hotel);
+                Extention.Print(ConsoleColor.Yellow, $"ID:{hotel.Id} \n" +
+                    $"HotelName:{hotel.Name} \n" +
+                    $"Adress:{hotel.Adress} \n" +
+                    $"ShareData {hotel.ShareData} Yarandi");
 
-                    hotelService.CreateHotel(hotel);
-                    Extention.Print(ConsoleColor.Yellow, $"ID:{hotel.Id} \n" +
-                        $"HotelName:{hotel.Name} \n" +
-                        $"Adress:{hotel.Adress} \n" +
-                        $"ShareData {hotel.ShareData} Yarandi");
-                }
-                else
-                {
-                    Extention.Print(ConsoleColor.Red, "Ilk herif Reqem olmaz");
-                    goto EnterName;
-                }
+                Extention.Print(ConsoleColor.Red, "Ilk herif Reqem olmaz");
+
+
             }
             catch (Exception ex)
             {
@@ -83,6 +74,7 @@ namespace ConsoleApp.Controllers
                 string name = Extention.StringName();
                 Extention.Print(ConsoleColor.Green, "New Name-i daxin edin");
                 string newname = Extention.StringName();
+
                 hotelService.UpdateHotelName(name.ToLower(), newname.ToLower());
             }
             catch (Exception ex)
@@ -118,9 +110,9 @@ namespace ConsoleApp.Controllers
                         "3: Quit");
 
                     int num = Extention.IntCheck();
-                   
 
-                   ;
+
+                    ;
                     if (num <= 3 && num > 0)
                     {
                         switch (num)

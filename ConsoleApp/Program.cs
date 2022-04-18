@@ -15,14 +15,13 @@ namespace ConsoleApp
             while (true)
             {
                 Extention.Print(ConsoleColor.Green, "1: Hotel Yaradin");
-                string num = Extention.StringName();
-                int numm;
-               bool control = int.TryParse(num, out numm);
+                int num = Extention.IntCheck();
+               
 
                    
 
 
-                if (control&&numm==1)
+                if (num==1)
                 {
                     hotelController.CreateHotel();
                     break;

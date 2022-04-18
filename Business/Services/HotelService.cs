@@ -66,10 +66,18 @@ namespace Business.Services
 
         public Hotel UpdateHotelName(string name, string newname)
         {
-            Hotel isExist = _hotelRepasitory.GetOne(h => h.Name == name);
+            Hotel isExist = _hotelRepasitory.GetOne(h => h.Name == name.ToLower());
             if (isExist != null)
             {
                 isExist.Name = newname;
+                
+                foreach (var item in employeeService.GetAllEmployee(name))
+                {
+                    
+                        item.HotelName = isExist.Name;
+                    
+                   
+                }
                 Extention.Print(ConsoleColor.Yellow, $"ID: {isExist.Id}");
                 Extention.Print(ConsoleColor.Blue, $"NewName: {isExist.Name}");
                 Extention.Print(ConsoleColor.Yellow, $"Adress: {isExist.Adress}");

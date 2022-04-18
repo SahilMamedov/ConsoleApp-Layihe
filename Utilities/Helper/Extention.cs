@@ -57,9 +57,25 @@ namespace Utilities.Helper
 
 
         }
+        public static string HotelnameCheck()
+        {
+        EnterName:
+            string name = Console.ReadLine();
+            if (name.Length >= 4 && name.Length <= 15 && !char.IsNumber(name[0]))
+            {
+                return name;
+            }
+            else
+            {
+                Extention.Print(ConsoleColor.Red, "Zehmet olmasa duzgun daxil edin..!");
+                goto EnterName;
+            }
+
+
+        }
         public static int IntNum()
         {
-            Enterage:
+        Enterage:
             string num = Console.ReadLine();
             int age;
             int.TryParse(num, out age);
@@ -78,7 +94,7 @@ namespace Utilities.Helper
         Enterage:
             string num = Console.ReadLine();
             int num1;
-          bool y = int.TryParse(num, out num1);
+            bool y = int.TryParse(num, out num1);
             if (y)
             {
                 return num1;
